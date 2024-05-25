@@ -4,13 +4,16 @@ import {NavBar} from
         "./view/common/Navbar/NavBar";
 import {MainContent} from "./view/common/MainContent/MainContent";
 import {Footer} from "./view/common/Footer/Footer";
+import {BrowserRouter} from "react-router-dom";
 
 function App() {
   return (
     <div>
-      <NavBar/>
-      <MainContent/>
-      <Footer/>
+      <BrowserRouter>
+          <NavBar/>
+          <MainContent/>
+          <Footer/>
+      </BrowserRouter>
     </div>
   );
 }
