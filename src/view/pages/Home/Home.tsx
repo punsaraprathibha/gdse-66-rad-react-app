@@ -49,6 +49,24 @@ export class Home extends Component {
                                    items-center">
                        04
                    </div>
+                   <div className="w-28 h-32
+                                   bg-blue-300
+                                   mr-2
+                                   mb-2
+                                   flex
+                                   justify-center
+                                   items-center">
+                       05
+                   </div>
+                   <div className="w-28 h-32
+                                   bg-blue-300
+                                   mr-2
+                                   mb-2
+                                   flex
+                                   justify-center
+                                   items-center">
+                       06
+                   </div>
                </div>
            </div>
         );
