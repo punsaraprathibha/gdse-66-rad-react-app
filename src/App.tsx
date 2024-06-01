@@ -13,7 +13,7 @@ function App() {
     <div>
       <BrowserRouter>
           <Routes>
-              <Route path="/"
+              <Route path="/*"
                      Component={DefaultLayout}>
               </Route>
               <Route path="/login"

@@ -5,9 +5,6 @@ import {Link} from "react-router-dom";
 export class NavBar extends Component {
 
     render() {
-        function onSignInClick() {
-            alert("Button Clicked!")
-        }
 
         return (
             <div className="p-2
@@ -37,11 +34,8 @@ export class NavBar extends Component {
                                    bg-secondary
                                    pl-3 pr-3
                                    rounded
-                                   hover:text-tertiary"
-                           onClick={onSignInClick}>
-                    Sign In
-
-
+                                   hover:text-tertiary">
+                    <Link to="/login">Sign In</Link>
                 </button>
             </div>
         );
