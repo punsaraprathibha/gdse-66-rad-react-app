@@ -1,4 +1,5 @@
 import {Component} from "react";
+import {CartItem} from "../../../model/CartItem";
 
 interface ModifyCartProps {
 
@@ -8,6 +9,8 @@ interface ModifyCartState {
 }
 
 export class ModifyCart extends Component<ModifyCartProps, ModifyCartState> {
+
+    public static itemsList:CartItem[] = [];
 
     constructor(props: ModifyCartProps) {
         super(props);
@@ -31,9 +34,14 @@ export class ModifyCart extends Component<ModifyCartProps, ModifyCartState> {
         const decreaseItemCount =
             () => {
             // alert('Remove')
-                this.setState({
-                    itemCount: --itemCount
-                })
+                if (itemCount > 1) {
+                    this.setState({
+                        itemCount: --itemCount
+                    })
+                } else {
+                    alert('Item count ' +
+                        'can\'t be less than 1' );
+                }
             }
 
         return (
