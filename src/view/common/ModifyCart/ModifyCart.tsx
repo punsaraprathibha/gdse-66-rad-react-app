@@ -39,6 +39,17 @@ export class ModifyCart extends Component<ModifyCartProps, ModifyCartState> {
         }
     }
 
+    componentDidUpdate(prevProps: Readonly<ModifyCartProps>, prevState: Readonly<ModifyCartState>, snapshot?: any) {
+        let {itemCount}
+            = this.state;
+        let item
+            = ModifyCart.itemsList
+            .find(item =>
+              item.product.id ===
+                this.props.data
+                    .product.id);
+    }
+
     render() {
 
         let {itemCount}
