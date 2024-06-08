@@ -17,16 +17,23 @@ export class ModifyCart extends Component<ModifyCartProps, ModifyCartState> {
     }
     render() {
 
-        const {itemCount} = this.state;
+        let {itemCount}
+            = this.state;
 
         const increaseItemCount =
             () => {
-          alert('Add');
+          // alert('Add');
+                this.setState({
+                    itemCount: ++itemCount
+                })
         }
 
         const decreaseItemCount =
             () => {
-            alert('Remove')
+            // alert('Remove')
+                this.setState({
+                    itemCount: --itemCount
+                })
             }
 
         return (
@@ -41,7 +48,7 @@ export class ModifyCart extends Component<ModifyCartProps, ModifyCartState> {
                                                   rounded-lg
                                                   h-3 w-4"
                          onClick={decreaseItemCount}>-</button>
-                <small className="text-[8px]">1</small>
+                <small className="text-[8px]">{itemCount}</small>
                 <button className="float-right
                                                   text-[8px]
                                                   bg-yellow-300
