@@ -48,6 +48,20 @@ export class ModifyCart extends Component<ModifyCartProps, ModifyCartState> {
               item.product.id ===
                 this.props.data
                     .product.id);
+        if (item) {
+            let index =
+                ModifyCart.itemsList
+                    .indexOf(item);
+            ModifyCart.itemsList
+                .splice(index, 1);
+            ModifyCart.itemsList
+                .push({
+                    product: this.props.data.product,
+                    itemCount: itemCount
+                });
+
+            console.log(ModifyCart.itemsList);
+        }
     }
 
     render() {
