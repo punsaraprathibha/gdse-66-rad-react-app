@@ -26,17 +26,17 @@ export class Contact extends Component<ContactProps, ContactState> {
             message: ''
         }
 
-        this.handleEmailChange = this
-            .handleEmailChange
-            .bind(this);
-
-        this.handleSubjectChange = this
-            .handleSubjectChange
-            .bind(this);
-
-        this.handleMessageChange = this
-            .handleMessageChange
-            .bind(this);
+        // this.handleEmailChange = this
+        //     .handleEmailChange
+        //     .bind(this);
+        //
+        // this.handleSubjectChange = this
+        //     .handleSubjectChange
+        //     .bind(this);
+        //
+        // this.handleMessageChange = this
+        //     .handleMessageChange
+        //     .bind(this);
     }
 
     private onSendBtnClick
@@ -86,7 +86,7 @@ export class Contact extends Component<ContactProps, ContactState> {
 
     private handleMessageInputOnChange
         = (event: {
-            target: { value: any}}) => {
+            target: { value: any, name: any}}) => {
         const target = event.target;
         let name = target.name;
         let value = target.value;
@@ -121,8 +121,9 @@ export class Contact extends Component<ContactProps, ContactState> {
                                     className="float-right
                                                border-[1px]
                                                border-green-200"
+                                     name="email"
                                      value={this.state.email}
-                                     onChange={this.handleEmailChange}/>
+                                     onChange={this.handleMessageInputOnChange}/>
                         </div>
                         <div className="pb-2">
                             <label className="text-[7px]">
@@ -131,8 +132,9 @@ export class Contact extends Component<ContactProps, ContactState> {
                                    className="float-right
                                                border-[1px]
                                                border-green-200"
+                                   name="subject"
                                    value={this.state.subject}
-                                   onChange={this.handleSubjectChange}/>
+                                   onChange={this.handleMessageInputOnChange}/>
                         </div>
                         <div className="pb-2">
                             <label className="text-[7px]">
@@ -141,8 +143,9 @@ export class Contact extends Component<ContactProps, ContactState> {
                                    className="float-right
                                                border-[1px]
                                                border-green-200"
+                                   name="message"
                                    value={this.state.message}
-                                   onChange={this.handleMessageChange}/>
+                                   onChange={this.handleMessageInputOnChange}/>
                         </div>
 
                         <div className="mt-2">
