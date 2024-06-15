@@ -1,12 +1,15 @@
 import {Component} from "react";
 import axios from "axios";
 
+interface ContactProps {
+    data: any
+}
 interface ContactState {
     email: string;
     subject: string;
     message: string
 }
-export class Contact extends Component {
+export class Contact extends Component<ContactProps, ContactState> {
 
     private api: any;
 
@@ -16,6 +19,12 @@ export class Contact extends Component {
             baseURL:
                 `http://localhost:4000`
         });
+
+        this.state = {
+            email: '',
+            subject: '',
+            message: ''
+        }
     }
 
     private onSendBtnClick
@@ -37,6 +46,30 @@ export class Contact extends Component {
             console.error(
                 'Error:', error);
         }
+    }
+
+    private handleEmailChange
+        = (event: {target:
+            { value: string; }}) => {
+        this.setState({
+            email: event.target.value
+        });
+    }
+
+    private handleSubjectChange
+        = (event: {target:
+            { value: string; }}) => {
+        this.setState({
+            subject: event.target.value
+        });
+    }
+
+    private handleMessageChange
+        = (event: {target:
+            { value: string; }}) => {
+        this.setState({
+            message: event.target.value
+        });
     }
 
     render() {
@@ -63,7 +96,8 @@ export class Contact extends Component {
                             <input type="email"
                                     className="float-right
                                                border-[1px]
-                                               border-green-200"/>
+                                               border-green-200"
+                                     onChange={this.handleEmailChange}/>
                         </div>
                         <div className="pb-2">
                             <label className="text-[7px]">
@@ -71,7 +105,8 @@ export class Contact extends Component {
                             <input type="text"
                                    className="float-right
                                                border-[1px]
-                                               border-green-200"/>
+                                               border-green-200"
+                                   onChange={this.handleSubjectChange}/>
                         </div>
                         <div className="pb-2">
                             <label className="text-[7px]">
@@ -79,7 +114,8 @@ export class Contact extends Component {
                             <textarea
                                    className="float-right
                                                border-[1px]
-                                               border-green-200"/>
+                                               border-green-200"
+                                   onChange={this.handleMessageChange}/>
                         </div>
 
                         <div className="mt-2">
