@@ -25,6 +25,18 @@ export class Contact extends Component<ContactProps, ContactState> {
             subject: '',
             message: ''
         }
+
+        this.handleEmailChange = this
+            .handleEmailChange
+            .bind(this);
+
+        this.handleSubjectChange = this
+            .handleSubjectChange
+            .bind(this);
+
+        this.handleMessageChange = this
+            .handleMessageChange
+            .bind(this);
     }
 
     private onSendBtnClick
@@ -32,9 +44,9 @@ export class Contact extends Component<ContactProps, ContactState> {
         try {
             this.api
                 .post('/contact/submit', {
-                    "email": "someone@gmail.com",
-                    "subject": "Contact Subject",
-                    "message": "Something went wrong"
+                    "email": this.state.email,
+                    "subject": this.state.subject,
+                    "message": this.state.message
                 }).then((res: {data: any}) => {
                     const response = res.data;
                     alert(response);
@@ -97,6 +109,7 @@ export class Contact extends Component<ContactProps, ContactState> {
                                     className="float-right
                                                border-[1px]
                                                border-green-200"
+                                     value={this.state.email}
                                      onChange={this.handleEmailChange}/>
                         </div>
                         <div className="pb-2">
@@ -106,6 +119,7 @@ export class Contact extends Component<ContactProps, ContactState> {
                                    className="float-right
                                                border-[1px]
                                                border-green-200"
+                                   value={this.state.subject}
                                    onChange={this.handleSubjectChange}/>
                         </div>
                         <div className="pb-2">
@@ -115,6 +129,7 @@ export class Contact extends Component<ContactProps, ContactState> {
                                    className="float-right
                                                border-[1px]
                                                border-green-200"
+                                   value={this.state.message}
                                    onChange={this.handleMessageChange}/>
                         </div>
 
