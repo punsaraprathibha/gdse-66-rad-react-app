@@ -25,7 +25,8 @@ const ProductModel
             require: true,
             type: String
         }
-    }
+    },
+    {versionKey: false}
 );
 
 const Product = mongoose
