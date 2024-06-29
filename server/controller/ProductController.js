@@ -31,6 +31,20 @@ const ProductController = {
                 {error: 'Something ' +
                         'went wrong!'});
         }
+    },
+
+    getProduct: async function(req, res, next){
+        try {
+            const productId = req.params.id;
+            const product = await Product
+                .findOne({id: productId});
+            res.status(200).json(product);
+        } catch (err) {
+            console.error(err);
+            res.status(500).json(
+                {error: 'Something ' +
+                        'went wrong!'});
+        }
     }
 }
 
